@@ -1,0 +1,24 @@
+{
+  "name": "apex-logs-winston",
+  "version": "1.0.0",
+  "keywords": [
+    "apex",
+    "log",
+    "logs",
+    "logging",
+    "winston",
+    "transport"
+  ],
+  "files": [
+    "index.js",
+    "buffer.js"
+  ],
+  "devDependencies": {
+    "apex-logs": "^1.0.3",
+    "winston": "^3.3.3"
+  },
+  "dependencies": {
+    "debug": "^4.1.1",
+    "winston-transport": "^4.4.0"
+  }
+}
