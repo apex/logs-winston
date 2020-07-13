@@ -28,7 +28,7 @@ const logger = winston.createLogger({
   defaultMeta: { program: 'api', host: 'api-01' }
 })
 
-logger.info('Hello World from Winston')
+logger.info('User Login', { user: { name: 'Tobi Ferret' } })
 ```
 
 Here's an example tuning the default buffering options:
