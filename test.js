@@ -2,9 +2,9 @@ const ApexLogsTransport = require('./')
 const winston = require('winston')
 
 const apex = new ApexLogsTransport({
-  url: process.env.URL,
-  authToken: process.env.AUTH_TOKEN,
-  projectId: process.env.PROJECT_ID,
+  url: process.env.APEX_LOGS_URL,
+  authToken: process.env.APEX_LOGS_AUTH_TOKEN,
+  projectId: process.env.APEX_LOGS_PROJECT_ID,
   buffer: { maxEntries: 200 }
 })
 

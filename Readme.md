@@ -17,9 +17,9 @@ const ApexLogsTransport = require('apex-logs-winston')
 const winston = require('winston')
 
 const apex = new ApexLogsTransport({
-  url: process.env.URL,
-  authToken: process.env.AUTH_TOKEN,
-  projectId: process.env.PROJECT_ID,
+  url: process.env.APEX_LOGS_URL,
+  authToken: process.env.APEX_LOGS_AUTH_TOKEN,
+  projectId: process.env.APEX_LOGS_PROJECT_ID,
 })
 
 const logger = winston.createLogger({
@@ -35,9 +35,9 @@ Here's an example tuning the default buffering options:
 
 ```js
 const apex = new ApexLogsTransport({
-  url: process.env.URL,
-  authToken: process.env.AUTH_TOKEN,
-  projectId: process.env.PROJECT_ID
+  url: process.env.APEX_LOGS_URL,
+  authToken: process.env.APEX_LOGS_AUTH_TOKEN,
+  projectId: process.env.APEX_LOGS_PROJECT_ID
   buffer: { maxEntries: 100, flushInterval: 5000 }
 })
 ```
