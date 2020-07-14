@@ -14,10 +14,10 @@
     "buffer.js"
   ],
   "devDependencies": {
-    "apex-logs": "^1.0.3",
     "winston": "^3.3.3"
   },
   "dependencies": {
+    "apex-logs": "^1.0.3",
     "debug": "^4.1.1",
     "winston-transport": "^4.4.0"
   }
