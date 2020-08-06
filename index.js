@@ -63,6 +63,7 @@ module.exports = class ApexLogsTransport extends Transport {
 
     // buffer event
     this.buffer.push({
+      timestamp: new Date,
       level: l,
       message,
       fields
