@@ -42,3 +42,12 @@ const apex = new ApexLogsTransport({
 })
 ```
 
+### Heroku & AWS Lambda
+
+Services such as Heroku and AWS Lambda expect logs to be written to stdout, in these cases use `json: true` to simple output an Apex Logs-friendly JSON format:
+
+```js
+const apex = new ApexLogsTransport({ json: true })
+```
+
+Note that the other options do not apply in this situation.

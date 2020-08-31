@@ -22,7 +22,7 @@ const levels = {
  * ApexLogsTransport is the Apex Logs transport.
  */
 
-module.exports = class ApexLogsTransport extends Transport {
+exports = module.exports = class ApexLogsTransport extends Transport {
 
   /**
    * Initialize with the given config:
@@ -33,12 +33,14 @@ module.exports = class ApexLogsTransport extends Transport {
    * - `buffer`: Options for buffering
    *   - `maxEntries`: The maximum number of entries before flushing (defaults to 250)
    *   - `flushInterval`: The flush interval in milliseconds (defaults to 15,000)
+   * - `json`: Enable JSON output for Heroku or AWS Lambda
    */
 
-  constructor({ url, authToken, projectId, buffer = {}, ...options }) {
+  constructor({ url, authToken, projectId, json, buffer = {}, ...options }) {
     super(options)
     this.projectId = projectId
     this.client = new Client({ url, authToken })
+    this.json = json
     this.buffer = new Buffer({
       onFlush: this.onFlush.bind(this),
       onError: this.onError.bind(this),
@@ -61,13 +63,22 @@ module.exports = class ApexLogsTransport extends Transport {
       fields.error = fields.error.stack || fields.error.toString()
     }
 
-    // buffer event
-    this.buffer.push({
+    // event
+    const e = {
       timestamp: new Date,
       level: l,
       message,
       fields
-    })
+    }
+
+    // json output
+    if (this.json) {
+      console.log(JSON.stringify(e))
+      return callback()
+    }
+
+    // buffer event
+    this.buffer.push(e)
 
     callback()
   }
@@ -102,3 +113,7 @@ module.exports = class ApexLogsTransport extends Transport {
     console.error('apex/logs-winston: error flushing logs: %s', error)
   }
 }
+
+exports.JSON = class ApexLogsJSONTransport extends Transport {
+
+} 
