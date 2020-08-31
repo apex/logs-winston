@@ -1,13 +1,16 @@
 {
   "name": "apex-logs-winston",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "keywords": [
     "apex",
     "log",
     "logs",
     "logging",
     "winston",
-    "transport"
+    "transport",
+    "heroku",
+    "lambda",
+    "cloudwatch"
   ],
   "files": [
     "index.js",
